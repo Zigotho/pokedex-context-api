@@ -1,8 +1,8 @@
-import React from "react";
-import "./listPokemon.scss";
 import axios from "axios";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { useListPokemonSeen } from "../context/newPokemons";
+import "./listPokemon.scss";
 
 export const ListPokemon = () => {
   const [pokemons, setPokemons] = React.useState([]);
@@ -26,7 +26,7 @@ export const ListPokemon = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  });
   const history = useHistory();
   const handlePokemon = (pokemon) => {
     console.log(pokemon);
@@ -38,12 +38,11 @@ export const ListPokemon = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h1>List Pokemon</h1>
+          <h1>Pokedex</h1>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          {/* create a list */}
           <ul className="listagem">
             {pokemons.map((pokemon) => (
               <li
